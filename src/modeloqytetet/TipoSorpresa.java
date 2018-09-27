@@ -9,6 +9,8 @@ package modeloqytetet;
  *
  * @author antonio
  */
+
+//Tipos validos de sorpresas
 public enum TipoSorpresa {
     PAGARCOBRAR, IRACASILLA, PORCASAHOTEL, PORJUGADOR, SALIRCARCEL
 }

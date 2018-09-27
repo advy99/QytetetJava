@@ -14,7 +14,14 @@ public class Sorpresa {
     private TipoSorpresa tipo;
     private int valor;
     
-    
+    /**
+     * @brief Constructor Sorpresa
+     * @param n_texto Texto de la sorpresa
+     * @param n_valor Valor de la sorpresa
+     * @param n_sorpresa Tipo de sorpresa, ha de ser alguno de los definidos
+     *                   en TipoSorpresa.java
+     * 
+     */
     public Sorpresa(String n_texto, int n_valor, TipoSorpresa n_sorpresa){
         texto = n_texto;
         valor = n_valor;
@@ -22,30 +29,61 @@ public class Sorpresa {
         
     }
 
+    
+    /**
+     * @brief Consultor del texto de una sorpresa
+     * @return texto
+     */
     String getTexto() {
         return texto;
     }
 
+    /**
+     * @brief Consultor del tipo de una sorpresa
+     * @return tipo
+     */
     TipoSorpresa getTipo() {
         return tipo;
     }
 
+    /**
+     * @brief Consultor del valor de una sorpresa
+     * @return valor
+     */
     int getValor() {
         return valor;
     }
 
+    /**
+     * @brief Establece (o cambiar) el valor del texto
+     * @param texto Nuevo texto
+     */
     void setTexto(String texto) {
         this.texto = texto;
     }
+    
+    /**
+     * @brief Establece (o cambiar) el tipo
+     * @param tipo Nuevo tipo
+     */
 
     void setTipo(TipoSorpresa tipo) {
         this.tipo = tipo;
     }
 
+    /**
+     * @brief Establece (o cambiar) el valor
+     * @param valor Nuevo valor
+     */
     void setValor(int valor) {
         this.valor = valor;
     } 
     
+    
+    /**
+     * @brief Muestra una sorpresa como string
+     * @return Valor de la sorpresa como string
+     */
     
     @Override
     public String toString(){
