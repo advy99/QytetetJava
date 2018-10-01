@@ -14,6 +14,9 @@ public class Qytetet {
     
     private ArrayList<Sorpresa> mazo = new ArrayList<>();
     
+    //TEMPORAL -> Hasta que tenga como inicializar el juego
+    private Tablero tablero = new Tablero();
+    
     /**
      * @brief Consultar el mazo
      * @return mazo
@@ -22,11 +25,15 @@ public class Qytetet {
         return mazo;
     }
     
+    Tablero getTablero() {
+        return tablero;
+    }
     
     /**
      * @brief Inicializar las cartas sorpresa
      */
     void inicializarCartasSorpresa(){
+        
         
         mazo.add(new Sorpresa ("Un fan anónimo ha pagado tu fianza. Sales " +
                  "de la cárcel", 0, TipoSorpresa.SALIRCARCEL));
@@ -54,7 +61,8 @@ public class Qytetet {
                   TipoSorpresa.PORCASAHOTEL));
         
         mazo.add(new Sorpresa ("Te hemos pillado con chanclas y calcetines," +
-                 "lo sentimos, ¡debes ir a la carcel!", 9,
+                 "lo sentimos, ¡debes ir a la carcel!",
+                  tablero.getCarcel().getNumeroCasilla(),
                   TipoSorpresa.IRACASILLA));
         
         mazo.add(new Sorpresa ("Has tenido suerte, vas a cobrar sin trabajar." +
@@ -63,6 +71,12 @@ public class Qytetet {
         mazo.add(new Sorpresa ("Encuentras un atajo en el camino.",
                  18, TipoSorpresa.IRACASILLA));
     }
+    
+    private void inicializarTablero(){
+        tablero = new Tablero();
+    }
+
+    
     
     
 }

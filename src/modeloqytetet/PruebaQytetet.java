@@ -73,7 +73,7 @@ public class PruebaQytetet {
                                        
     private static ArrayList<Sorpresa> getSorpresasTipo
                                        (ArrayList<Sorpresa> sorpresas,
-                                                  TipoSorpresa tipo){
+                                        TipoSorpresa tipo){
     
         //Creamos Array vacio
         ArrayList<Sorpresa> sorpresasTipo = new ArrayList<>();
@@ -120,6 +120,11 @@ public class PruebaQytetet {
         }
         
         
+        
+        System.out.println("\nTenemos el siguiente tablero: \n");
+        
+        System.out.println(juego.getTablero().toString());
+                
     }
     
 }
