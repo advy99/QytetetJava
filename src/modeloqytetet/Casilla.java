@@ -12,7 +12,7 @@ package modeloqytetet;
 public class Casilla {
     
     private int numeroCasilla;
-    private int precioCompra;
+    private int coste;
     private TipoCasilla tipo;
     private TituloPropiedad titulo;
     
@@ -20,24 +20,23 @@ public class Casilla {
         this.numeroCasilla = numeroCasilla;
         this.tipo = TipoCasilla.CALLE;
         setTitulo(titulo);
-        this.precioCompra = this.titulo.getPrecioCompra();
+        this.coste = this.titulo.getPrecioCompra();
 
     }
     
-    public Casilla(int numeroCasilla, TipoCasilla tipo){
+    public Casilla(int numeroCasilla, int n_coste, TipoCasilla tipo){
         this.numeroCasilla = numeroCasilla;
         this.tipo = tipo;
-        precioCompra = 0;
+        this.coste = n_coste;
         this.titulo = null;
-        
     }
-
+    
     public int getNumeroCasilla() {
         return numeroCasilla;
     }
 
-    public int getPrecioCompra() {
-        return precioCompra;
+    public int getCoste() {
+        return coste;
     }
 
     public TipoCasilla getTipo() {
@@ -58,15 +57,11 @@ public class Casilla {
         String texto = "";
         
         texto += "Numero de casilla: " + numeroCasilla + "\n" +
-                 "Tipo de casilla: " + tipo + "\n";
+                 "Tipo de casilla: " + tipo + "\n" +
+                 "Coste: " + coste + "\n ";
         
-        if (tipo == TipoCasilla.CALLE){
-            texto += "Precio de compra: " + precioCompra + "\n ";
-                     
-            if ( titulo != null){
-                texto += titulo.toString();
-
-            }
+        if (tipo == TipoCasilla.CALLE && titulo != null){
+            texto += titulo.toString();
         }
      
         return texto;

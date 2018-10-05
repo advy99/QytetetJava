@@ -14,8 +14,15 @@ public class Qytetet {
     
     private ArrayList<Sorpresa> mazo = new ArrayList<>();
     
-    //TEMPORAL -> Hasta que tenga como inicializar el juego
-    private Tablero tablero = new Tablero();
+    private Tablero tablero;
+    
+    public Qytetet(){
+    
+        inicializarTablero();
+
+        inicializarCartasSorpresa();
+    
+    }
     
     /**
      * @brief Consultar el mazo
