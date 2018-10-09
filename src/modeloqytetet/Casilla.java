@@ -16,7 +16,7 @@ public class Casilla {
     private TipoCasilla tipo;
     private TituloPropiedad titulo;
     
-    public Casilla(int numeroCasilla, TituloPropiedad titulo){
+    Casilla(int numeroCasilla, TituloPropiedad titulo){
         this.numeroCasilla = numeroCasilla;
         this.tipo = TipoCasilla.CALLE;
         setTitulo(titulo);
@@ -24,32 +24,53 @@ public class Casilla {
 
     }
     
-    public Casilla(int numeroCasilla, int n_coste, TipoCasilla tipo){
+    Casilla(int numeroCasilla, int n_coste, TipoCasilla tipo){
         this.numeroCasilla = numeroCasilla;
         this.tipo = tipo;
         this.coste = n_coste;
         this.titulo = null;
     }
     
-    public int getNumeroCasilla() {
+    TituloPropiedad asignarPropietario(Jugador jugador){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    int getNumeroCasilla() {
         return numeroCasilla;
     }
 
-    public int getCoste() {
+    int getCoste() {
         return coste;
     }
 
-    public TipoCasilla getTipo() {
+    TipoCasilla getTipo() {
         return tipo;
     }
 
-    public TituloPropiedad getTitulo() {
-        return titulo;
+    TituloPropiedad getTitulo() {
+        return titulo;  
     }
 
     private void setTitulo(TituloPropiedad titulo) {
         this.titulo = titulo;
     }
+    
+    int pagarAlquiler(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    boolean propietarioEncarcelado(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    boolean soyEdificable(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    boolean tengoPropietario(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
     
     @Override
     public String toString(){

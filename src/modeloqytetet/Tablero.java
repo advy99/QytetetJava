@@ -13,23 +13,19 @@ import java.util.ArrayList;
  */
 public class Tablero {
     
+    static final int NUM_CASILLAS = 20;
+    
     private ArrayList<Casilla> casillas;
     
     private Casilla carcel;
  
-    public Tablero(){
+    Tablero(){
         
         inicializar();
 
     }
 
-    public ArrayList<Casilla> getCasillas() {
-        return casillas;
-    }
-
-    public Casilla getCarcel() {
-        return carcel;
-    }
+   
     
     @Override
     public String toString(){
@@ -40,7 +36,7 @@ public class Tablero {
             texto += s.toString();
         }
         
-        //texto += carcel.toString();
+        texto += "\n\n";
         
         return texto;
         
@@ -112,4 +108,24 @@ public class Tablero {
         carcel = casillas.get(9);
     }
     
+    
+    boolean esCasillaCarcel(int numCasilla){
+        return numCasilla == carcel.getNumeroCasilla();
+    }
+    
+    Casilla getCarcel() {
+        return carcel;
+    }
+    
+    ArrayList<Casilla> getCasillas() {
+        return casillas;
+    }
+    
+    Casilla obtenerCasillaFinal(Casilla casilla, int desplazamiento){
+        return casillas.get(casilla.getNumeroCasilla()+desplazamiento);
+    }
+    
+    Casilla obtenerCasillaNumero(int numeroCasilla){
+        return casillas.get(numeroCasilla);
+    }
 }

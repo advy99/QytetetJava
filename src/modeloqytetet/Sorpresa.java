@@ -22,7 +22,7 @@ public class Sorpresa {
      *                   en TipoSorpresa.java
      * 
      */
-    public Sorpresa(String n_texto, int n_valor, TipoSorpresa n_sorpresa){
+    Sorpresa(String n_texto, int n_valor, TipoSorpresa n_sorpresa){
         texto = n_texto;
         valor = n_valor;
         tipo = n_sorpresa;
@@ -54,32 +54,6 @@ public class Sorpresa {
         return valor;
     }
 
-    /**
-     * @brief Establece (o cambiar) el valor del texto
-     * @param texto Nuevo texto
-     */
-    void setTexto(String texto) {
-        this.texto = texto;
-    }
-    
-    /**
-     * @brief Establece (o cambiar) el tipo
-     * @param tipo Nuevo tipo
-     */
-
-    void setTipo(TipoSorpresa tipo) {
-        this.tipo = tipo;
-    }
-
-    /**
-     * @brief Establece (o cambiar) el valor
-     * @param valor Nuevo valor
-     */
-    void setValor(int valor) {
-        this.valor = valor;
-    } 
-    
-    
     /**
      * @brief Muestra una sorpresa como string
      * @return Valor de la sorpresa como string

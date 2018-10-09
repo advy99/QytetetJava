@@ -5,6 +5,7 @@
  */
 package modeloqytetet;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -17,7 +18,12 @@ public class PruebaQytetet {
      */
     
     //Instancia del juego Qytetet
-    static Qytetet juego = new Qytetet();
+    static Qytetet juego = Qytetet.getInstance();
+    
+    
+    //Scanner para lectura de datos
+    private static final Scanner in = new Scanner (System.in);
+
     
     /**
      * @brief Obtener las sorpresa con valor positivo
@@ -88,11 +94,33 @@ public class PruebaQytetet {
         
     }
    
+                                       
+
+    private static ArrayList<String> getNombreJugadores(){
+        
+        int numeroJugadores;
+        ArrayList<String> nombres = new ArrayList<>();
+        
+        do{
+            System.out.println("Introduce el numero de jugadores (de 2 a 4):");
+            numeroJugadores = in.nextInt();
+        }while(numeroJugadores > 4 || numeroJugadores < 2);
+        
+        in.nextLine();
+        
+        for(int i = 0; i < numeroJugadores; i++){
+            System.out.println("Introduce el nombre del jugador " + i + "\n" );
+            String n = in.nextLine();
+            nombres.add(n);
+        }
+        
+        return nombres;
+    }
+                                       
     
     public static void main(String[] args) {
         
-        //Inicializamos las cartas del juego
-        juego.inicializarCartasSorpresa();
+        /* PREBAS PRACTICA 1
         
         //Mostramos las cartas
         for (Sorpresa s: juego.getMazo()){
@@ -119,12 +147,19 @@ public class PruebaQytetet {
             }
         }
         
-        
-        
         System.out.println("\nTenemos el siguiente tablero: \n");
         
         System.out.println(juego.getTablero().toString());
+            
+       */
+        
+        juego.inicializarJuego(getNombreJugadores());
                 
+        for (int i = 0; i < juego.getJugadores().size(); i++){
+            System.out.println("Jugador " + i + " : " +
+                                juego.getJugadores().get(i));
+        }
+        
     }
     
 }
