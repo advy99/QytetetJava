@@ -18,8 +18,9 @@ public class TituloPropiedad {
     private float factorRevalorizacion;
     private int hipotecaBase;
     private int precioEdificar;
-    private int numCasas;
-    private int numHoteles;
+    private int numCasas = 0;
+    private int numHoteles = 0;
+    private Jugador propietario;
     
     
     public TituloPropiedad(String nombre, int precioCompra, int alquilerBase,
@@ -37,45 +38,104 @@ public class TituloPropiedad {
         this.numCasas = 0;
         
     }
-
-    public String getNombre() {
-        return nombre;
+    
+    int calcularCosteCancelar(){
+        throw new UnsupportedOperationException("Sin implementar");
     }
-
-    public boolean isHipotecada() {
+    
+    int calcularCosteHipotecar(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    int calcularImporteAlquiler(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    int calcularPrecioVente(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    void cancelarHipoteca(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    void cobrarAlquiler (int coste){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    void edificarCasa(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    void edificarHotel(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    int getAlquilerBase() {
+        return alquilerBase;
+    }
+    
+    float getFactorRevalorizacion() {
+        return factorRevalorizacion;
+    }
+    
+    int getHipotecaBase() {
+        return hipotecaBase;
+    }
+    
+    boolean getHipotecada() {
         return hipotecada;
     }
 
-    public int getPrecioCompra() {
-        return precioCompra;
+
+    String getNombre() {
+        return nombre;
     }
 
-    public int getAlquilerBase() {
-        return alquilerBase;
-    }
-
-    public float getFactorRevalorizacion() {
-        return factorRevalorizacion;
-    }
-
-    public int getHipotecaBase() {
-        return hipotecaBase;
-    }
-
-    public int getPrecioEdificar() {
-        return precioEdificar;
-    }
-
-    public int getNumCasas() {
+    
+    int getNumCasas() {
         return numCasas;
     }
 
-    public int getNumHoteles() {
+    int getNumHoteles() {
         return numHoteles;
     }
+    
+    int getPrecioCompra() {
+        return precioCompra;
+    }
 
-    public void setHipotecada(boolean hipotecada) {
+    int getPrecioEdificar() {
+        return precioEdificar;
+    }
+
+    Jugador getPropietario(){
+        return propietario;
+    }
+    
+    int hipotecar(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    int pagarAlquiler(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+    
+    boolean propietarioEncarcelado(){
+        throw new UnsupportedOperationException("Sin implementar");
+    }
+   
+
+    void setHipotecada(boolean hipotecada) {
         this.hipotecada = hipotecada;
+    }
+    
+    void setPropietario(Jugador propietario){
+        this.propietario = propietario;
+    }
+    
+    boolean tengoPropietario(){
+        throw new UnsupportedOperationException("Sin implementar");
     }
     
     @Override

@@ -162,6 +162,8 @@ public class Qytetet {
         inicializarCartasSorpresa();
         inicializarJugadores(nombres);
         
+        jugadorActual = jugadores.get(0);
+        
     }
     
     /**
@@ -255,7 +257,8 @@ public class Qytetet {
             texto += j.toString();
         }
         
-        texto += cartaActual.toString();
+        if (cartaActual != null)
+            texto += cartaActual.toString();
         
         texto += "\nJugador actual: " + jugadorActual.getNombre() + "\n";
         

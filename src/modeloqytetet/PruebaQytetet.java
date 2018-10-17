@@ -160,6 +160,9 @@ public class PruebaQytetet {
                                 juego.getJugadores().get(i));
         }
         
+        
+        System.out.println(juego.toString());
+        
     }
     
 }
