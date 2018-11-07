@@ -122,9 +122,16 @@ public class Tablero {
     }
     
     Casilla obtenerCasillaFinal(Casilla casilla, int desplazamiento){
-        return casillas.get(casilla.getNumeroCasilla()+desplazamiento);
+        return casillas.get( (casilla.getNumeroCasilla()+desplazamiento) % 20 );
     }
     
+    
+    /**
+     * @brief Obtener casilla dado un indice por parametro
+     * @param numeroCasilla
+     * @pre 0 <= numeroCasilla < NUM_CASILLAS
+     * @return 
+     */
     Casilla obtenerCasillaNumero(int numeroCasilla){
         return casillas.get(numeroCasilla);
     }

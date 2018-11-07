@@ -106,11 +106,10 @@ public class PruebaQytetet {
             numeroJugadores = in.nextInt();
         }while(numeroJugadores > 4 || numeroJugadores < 2);
         
-        in.nextLine();
         
         for(int i = 0; i < numeroJugadores; i++){
             System.out.println("Introduce el nombre del jugador " + i + "\n" );
-            String n = in.nextLine();
+            String n = in.next();
             nombres.add(n);
         }
         
@@ -154,11 +153,7 @@ public class PruebaQytetet {
        */
         
         juego.inicializarJuego(getNombreJugadores());
-                
-        for (int i = 0; i < juego.getJugadores().size(); i++){
-            System.out.println("Jugador " + i + " : " +
-                                juego.getJugadores().get(i));
-        }
+       
         
         
         System.out.println(juego.toString());
