@@ -5,6 +5,8 @@
  */
 package modeloqytetet;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 /**
  *
@@ -31,6 +33,8 @@ public class Qytetet {
     private Jugador jugadorActual;
     
     private Dado dado = Dado.getInstance();
+    
+    private EstadoJuego estadoJuego;
     
     private Qytetet(){
     
@@ -149,7 +153,7 @@ public class Qytetet {
     }
     
     public int getValorDado(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return dado.getValor();
     }
     
     public void hipotecarPropiedad(int numeroCasilla){
@@ -187,7 +191,14 @@ public class Qytetet {
     }
     
     public void jugar(){
-        throw new UnsupportedOperationException("Sin implementar");
+        Casilla casillaFinal;
+        
+        int v_dado = tirarDado();
+        
+        casillaFinal = tablero.obtenerCasillaFinal(jugadorActual.getCasillaActual(), v_dado);
+        
+        mover(casillaFinal.getNumeroCasilla());
+        
     }
     
     void mover(int numCasillaDestino){
@@ -203,36 +214,78 @@ public class Qytetet {
     }
     
     public ArrayList<Integer> obtenerPropiedadesJugador(){
-        throw new UnsupportedOperationException("Sin implementar");
+        ArrayList<Integer> pro = new ArrayList<>();
+        
+        for(Casilla c: tablero.getCasillas()){
+            for(TituloPropiedad p: jugadorActual.getPropiedades()){
+                if (c.getTitulo() == p){
+                    pro.add(c.getNumeroCasilla());
+                }
+            }
+        }
+        
+        return pro;
     }
     
     public ArrayList<Integer> obtenerPropiedadesJugadorSegunEstadoHipoteca(
                                                        boolean estadoHipoteca) {
-        throw new UnsupportedOperationException("Sin implementar");
+        ArrayList<Integer> pro = obtenerPropiedadesJugador();
+        
+        for(Integer i: pro){
+            if(tablero.obtenerCasillaNumero(i).getTitulo().getHipotecada() == estadoHipoteca )
+                pro.remove(i);
+        }
+        
+        
+        return pro;
     }
     
     public void obtenerRanking(){
-        throw new UnsupportedOperationException("Sin implementar");
+        Collections.sort(jugadores);
     }
     
     public int obtenerSaldoJugadorActual(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return jugadorActual.getSaldo();
     }
     
     private void salidaJugadores(){
-        throw new UnsupportedOperationException("Sin implementar");
+        for(Jugador j: jugadores){
+            j.setCasillaActual(tablero.obtenerCasillaNumero(0));
+        }
+        
+        Random r = new Random();
+        
+        jugadorActual = jugadores.get(r.nextInt()%jugadores.size());
+        
+        estadoJuego = EstadoJuego.JA_PREPARADO;
     }
     
     private void setCartaActual(Sorpresa cartaActual) {
-        
+        this.cartaActual = cartaActual;
     }
     
     public void siguienteJugador(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int n_jugador = 0;
+        
+        for(int i = 0; i < jugadores.size(); i++){
+            if(jugadores.get(i) == jugadorActual){
+                n_jugador = i;
+            }
+        }
+        
+        n_jugador = (n_jugador + 1) % jugadores.size();
+        
+        jugadorActual = jugadores.get(n_jugador);
+        
+        if(jugadorActual.getEncarcelado()){
+            estadoJuego = EstadoJuego.JA_ENCARCELADOCONOPCIONDELIBERTAD;
+        }else{
+            estadoJuego = EstadoJuego.JA_PREPARADO;
+        }
     }
     
     int tirarDado(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return dado.tirar();
     }
     
     public boolean venderPropiedad(int numeroCasilla){

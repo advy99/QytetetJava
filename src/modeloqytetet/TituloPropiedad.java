@@ -122,7 +122,7 @@ public class TituloPropiedad {
     }
     
     boolean propietarioEncarcelado(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return propietario.getEncarcelado();
     }
    
 
@@ -135,7 +135,7 @@ public class TituloPropiedad {
     }
     
     boolean tengoPropietario(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return propietario != null;
     }
     
     @Override

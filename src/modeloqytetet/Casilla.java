@@ -60,15 +60,25 @@ public class Casilla {
     }
     
     boolean propietarioEncarcelado(){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean lo_esta = false;
+        
+        if(titulo != null)
+            lo_esta = titulo.propietarioEncarcelado();
+        
+        return lo_esta;
     }
     
     boolean soyEdificable(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return tipo == TipoCasilla.CALLE;
     }
     
     boolean tengoPropietario(){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean lo_tengo = false;
+        
+        if(titulo != null)
+            lo_tengo = titulo.tengoPropietario();
+        
+        return lo_tengo;
     }
     
     
