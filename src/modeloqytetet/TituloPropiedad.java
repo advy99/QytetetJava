@@ -48,7 +48,9 @@ public class TituloPropiedad {
     }
     
     int calcularImporteAlquiler(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int costeAlquiler = alquilerBase + (numCasas + numHoteles * 2);
+        
+        return costeAlquiler;
     }
     
     int calcularPrecioVente(){
@@ -64,7 +66,7 @@ public class TituloPropiedad {
     }
     
     void edificarCasa(){
-        throw new UnsupportedOperationException("Sin implementar");
+        numCasas = numCasas + 1;
     }
     
     void edificarHotel(){
@@ -118,7 +120,13 @@ public class TituloPropiedad {
     }
     
     int pagarAlquiler(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int costeAlquiler = calcularImporteAlquiler();
+        
+  
+        propietario.modificarSaldo(costeAlquiler);
+        
+        
+        return costeAlquiler;
     }
     
     boolean propietarioEncarcelado(){

@@ -56,7 +56,9 @@ public class Casilla {
     }
     
     int pagarAlquiler(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int costeAlquiler = pagarAlquiler();
+        
+        return costeAlquiler;
     }
     
     boolean propietarioEncarcelado(){

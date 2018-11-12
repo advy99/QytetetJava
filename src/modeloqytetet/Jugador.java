@@ -36,7 +36,20 @@ public class Jugador implements Comparable {
     }
     
     boolean comprarTituloPropiedad(){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean comprado = false;
+        
+        int costeCompra = casillaActual.getCoste();
+        
+        if(costeCompra < saldo){
+            TituloPropiedad titulo = casillaActual.asignarPropietario(this);
+            
+            propiedades.add(titulo);
+            
+            modificarSaldo(-costeCompra);
+        }
+        
+        
+        return comprado;
     }
     
     int cuantasCasasHotelesTengo(){
@@ -50,7 +63,30 @@ public class Jugador implements Comparable {
     }
     
     boolean deboPagarAlquiler(){
-        throw new UnsupportedOperationException("Sin implementar");
+        TituloPropiedad titulo = casillaActual.getTitulo();
+        
+        boolean deboPagar;
+        
+        boolean esDeMiPropiedad = esDeMiPropiedad(titulo);
+        boolean tienePropietario = false;
+        boolean estaHipotecada = false;
+        
+        if(!esDeMiPropiedad){
+            tienePropietario = titulo.tengoPropietario();
+            
+            if(tienePropietario){
+                boolean encarcelado = titulo.propietarioEncarcelado();
+                
+                if (!encarcelado){
+                    estaHipotecada = titulo.getHipotecada();
+                }
+            }
+        }
+    
+        deboPagar = !esDeMiPropiedad && tienePropietario && !estaHipotecada;
+        
+        
+        return deboPagar;
     }
     
     Sorpresa devolverCartaLibertad() {
@@ -62,7 +98,26 @@ public class Jugador implements Comparable {
     }
 
     boolean edificarCasa(TituloPropiedad titulo){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean edificada = false;
+        
+        int numCasas = titulo.getNumCasas();
+        
+        if (numCasas < 4){
+            int costeEdificarCasa = titulo.getPrecioEdificar();
+            
+            boolean tengoSaldo = tengoSaldo(costeEdificarCasa);
+            
+            if (tengoSaldo){
+                titulo.edificarCasa();
+                
+                modificarSaldo(-costeEdificarCasa);
+                
+                edificada = true;
+            }
+        }
+        
+        return edificada;
+        
     }
     
     boolean edificarHotel(TituloPropiedad titulo){
@@ -74,12 +129,9 @@ public class Jugador implements Comparable {
     }
     
     private boolean esDeMiPropiedad(TituloPropiedad titulo) {
-        boolean loEs = false;
         
-        for (int i = 0; i < propiedades.size() && !loEs; i++ )
-            loEs = propiedades.get(i) == titulo;
+        return propiedades.contains(titulo);
         
-        return loEs;
     }
     
     boolean estoyEnCalleLibre(){
@@ -115,7 +167,9 @@ public class Jugador implements Comparable {
     }
     
     void irACarcel(Casilla casilla) {
-        throw new UnsupportedOperationException("Sin implementar");
+        setCasillaActual(casilla);
+        
+        setEncarcelado(true);
     }
     
     int modificarSaldo(int cantidad) {
@@ -150,7 +204,9 @@ public class Jugador implements Comparable {
     }
     
     void pagarAlquiler(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int costeAlquiler = casillaActual.pagarAlquiler();
+        
+        modificarSaldo(-costeAlquiler);
     }
     
     void pagarImpuesto(){
@@ -158,7 +214,13 @@ public class Jugador implements Comparable {
     }
     
     void pagarLibertad(int cantidad){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean tengoSaldo = tengoSaldo(cantidad);
+        
+        if (tengoSaldo){
+            setEncarcelado(false);
+            
+            modificarSaldo(-cantidad);
+        }
     }
     
     void setCartaLibertad(Sorpresa carta) {

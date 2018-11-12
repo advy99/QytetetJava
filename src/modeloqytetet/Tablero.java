@@ -122,7 +122,7 @@ public class Tablero {
     }
     
     Casilla obtenerCasillaFinal(Casilla casilla, int desplazamiento){
-        return casillas.get( (casilla.getNumeroCasilla()+desplazamiento) % 20 );
+        return casillas.get( (casilla.getNumeroCasilla()+desplazamiento) % NUM_CASILLAS );
     }
     
     
