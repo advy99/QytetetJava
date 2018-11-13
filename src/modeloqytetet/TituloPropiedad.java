@@ -44,7 +44,9 @@ public class TituloPropiedad {
     }
     
     int calcularCosteHipotecar(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int costeHipoteca = hipotecaBase + (int) (numCasas * 0.5) + numHoteles * hipotecaBase;
+        
+        return costeHipoteca;
     }
     
     int calcularImporteAlquiler(){
@@ -53,8 +55,10 @@ public class TituloPropiedad {
         return costeAlquiler;
     }
     
-    int calcularPrecioVente(){
-        throw new UnsupportedOperationException("Sin implementar");
+    int calcularPrecioVenta(){
+        int precioVenta = precioCompra + (numCasas + numHoteles ) * precioEdificar * (int) factorRevalorizacion;
+    
+        return precioVenta;
     }
     
     void cancelarHipoteca(){
@@ -116,7 +120,11 @@ public class TituloPropiedad {
     }
     
     int hipotecar(){
-        throw new UnsupportedOperationException("Sin implementar");
+        setHipotecada(true);
+        
+        int costeHipoteca = calcularCosteHipotecar();
+        
+        return costeHipoteca;
     }
     
     int pagarAlquiler(){

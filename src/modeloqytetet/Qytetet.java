@@ -97,6 +97,9 @@ public class Qytetet {
         
         mazo.add(new Sorpresa ("Encuentras un atajo en el camino.",
                  18, TipoSorpresa.IRACASILLA));
+        
+        
+        Collections.shuffle(mazo);
     }
     
     private void inicializarTablero(){
@@ -292,16 +295,23 @@ public class Qytetet {
     }
     
     public void hipotecarPropiedad(int numeroCasilla){
-        throw new UnsupportedOperationException("Sin implementar");
+        Casilla casilla = tablero.obtenerCasillaNumero(numeroCasilla);
+        
+        TituloPropiedad titulo = casilla.getTitulo();
+        
+        jugadorActual.hipotecarPropiedad(titulo);
+        
+        setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
     }
 
     public void inicializarJuego(ArrayList<String> nombres ){  
         
+        inicializarJugadores(nombres);
         inicializarTablero();
         inicializarCartasSorpresa();
-        inicializarJugadores(nombres);
         
-        jugadorActual = jugadores.get(0);
+        salidaJugadores();
+        
         
     }
     
@@ -457,8 +467,12 @@ public class Qytetet {
         return dado.tirar();
     }
     
-    public boolean venderPropiedad(int numeroCasilla){
-        throw new UnsupportedOperationException("Sin implementar");
+    public void venderPropiedad(int numCasilla){
+        Casilla casilla = tablero.obtenerCasillaNumero(numCasilla);
+        
+        jugadorActual.venderPropiedad(casilla);
+        
+        setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
     }
     
     public EstadoJuego getEstadoJuego(){

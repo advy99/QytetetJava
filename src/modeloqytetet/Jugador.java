@@ -125,7 +125,10 @@ public class Jugador implements Comparable {
     }
     
     private void eliminarDeMisPropiedades(TituloPropiedad titulo){
-        throw new UnsupportedOperationException("Sin implementar");
+        propiedades.remove(titulo);
+        
+        titulo.setPropietario(null);
+        
     }
     
     private boolean esDeMiPropiedad(TituloPropiedad titulo) {
@@ -162,8 +165,11 @@ public class Jugador implements Comparable {
         return saldo;
     }
     
-    boolean hipotecarPropiedad(TituloPropiedad titulo){
-        throw new UnsupportedOperationException("Sin implementar");
+    void hipotecarPropiedad(TituloPropiedad titulo){
+        int costeHipoteca = titulo.hipotecar();
+        
+        modificarSaldo(costeHipoteca);
+        
     }
     
     void irACarcel(Casilla casilla) {
@@ -243,8 +249,14 @@ public class Jugador implements Comparable {
         return saldo >= cantidad;
     }
     
-    boolean venderPropiedad(Casilla casilla) {
-        throw new UnsupportedOperationException("Sin implementar");
+    void venderPropiedad(Casilla casilla) {
+        TituloPropiedad titulo = casilla.getTitulo();
+        
+        eliminarDeMisPropiedades(titulo);
+        
+        int precioVenta = titulo.calcularPrecioVenta();
+        
+        modificarSaldo(precioVenta);
     }
 
     @Override
