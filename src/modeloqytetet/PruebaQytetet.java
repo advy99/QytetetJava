@@ -154,10 +154,26 @@ public class PruebaQytetet {
         
         juego.inicializarJuego(getNombreJugadores());
        
+        System.out.println("El jugador actual es : ");
+        System.out.println(juego.getJugadorActual().toString());
         
+        juego.mover(1);
+        System.out.println(juego.getJugadorActual().toString());
         
-        System.out.println(juego.toString());
+        juego.comprarTituloPropiedad();
+                
+        Jugador otro = juego.getJugadorActual();
         
+        juego.siguienteJugador();
+        
+        juego.mover(1);
+
+        System.out.println(juego.getJugadorActual().toString());
+        System.out.println(otro.toString());
+
+        
+        //System.out.println(juego.toString());
+       
     }
     
 }

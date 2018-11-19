@@ -220,7 +220,17 @@ public class Qytetet {
     }
     
     public boolean cancelarHipoteca(int numeroCasilla){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean cancelada = false;
+        
+        Casilla casilla = tablero.obtenerCasillaNumero(numeroCasilla);
+        
+        TituloPropiedad titulo = casilla.getTitulo();
+        
+        cancelada = jugadorActual.cancelarHipoteca(titulo);
+        
+        setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
+        
+        return cancelada;
     }
     
     public boolean comprarTituloPropiedad(){
@@ -252,7 +262,21 @@ public class Qytetet {
     }
     
     public boolean edificarHotel(int numeroCasilla){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean edificado = false;
+        
+        Casilla casilla = tablero.obtenerCasillaNumero(numeroCasilla);
+        
+        TituloPropiedad titulo = casilla.getTitulo();
+        
+        edificado = jugadorActual.edificarHotel(titulo);
+        
+        
+        if(edificado){
+            setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
+        }
+        
+        
+        return edificado;
     }
     
     private void encarcelarJugador(){
@@ -325,8 +349,8 @@ public class Qytetet {
     private void inicializarJugadores(ArrayList<String> nombres) {
 
         for (String n: nombres){
-            jugadores.add( new Jugador(n, tablero.obtenerCasillaNumero(0)));
-
+            jugadores.add( new Jugador(n));
+            
         }
         
     }
@@ -385,12 +409,12 @@ public class Qytetet {
     }
     
     public Casilla obtenerCasillaJugadorActual(){
-        throw new UnsupportedOperationException("Sin implementar");
+        return jugadorActual.getCasillaActual();
     }
     
-    public ArrayList<Casilla> obtenerCasillasTablero(){
-        throw new UnsupportedOperationException("Sin implementar");
-    }
+    //public ArrayList<Casilla> obtenerCasillasTablero(){
+    //    throw new UnsupportedOperationException("Sin implementar");
+    //}
     
     public ArrayList<Integer> obtenerPropiedadesJugador(){
         ArrayList<Integer> pro = new ArrayList<>();
@@ -407,16 +431,18 @@ public class Qytetet {
     
     public ArrayList<Integer> obtenerPropiedadesJugadorSegunEstadoHipoteca(
                                                        boolean estadoHipoteca) {
-        ArrayList<Integer> pro = obtenerPropiedadesJugador();
+        ArrayList<TituloPropiedad> pro = jugadorActual.obtenerPropiedades(estadoHipoteca);
+        ArrayList<Integer> sol = new ArrayList<>();
         
-        for(Integer i: pro){
-            if (tablero.obtenerCasillaNumero(i).getTitulo() != null)
-                if(tablero.obtenerCasillaNumero(i).getTitulo().getHipotecada() != estadoHipoteca )
-                    pro.remove(i);
+        for(Casilla c: tablero.getCasillas()){
+            if (pro.contains(c.getTitulo())){
+                sol.add(c.getNumeroCasilla());
+            }
+        
         }
         
         
-        return pro;
+        return sol;
     }
     
     public void obtenerRanking(){
@@ -434,7 +460,7 @@ public class Qytetet {
         
         Random r = new Random();
         
-        jugadorActual = jugadores.get(r.nextInt()%jugadores.size());
+        jugadorActual = jugadores.get(r.nextInt(jugadores.size()));
         
         estadoJuego = EstadoJuego.JA_PREPARADO;
     }

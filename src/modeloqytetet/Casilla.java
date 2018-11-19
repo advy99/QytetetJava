@@ -32,7 +32,9 @@ public class Casilla {
     }
     
     TituloPropiedad asignarPropietario(Jugador jugador){
-        throw new UnsupportedOperationException("Sin implementar");
+        titulo.setPropietario(jugador);
+        
+        return titulo;
     }
     
     int getNumeroCasilla() {
@@ -56,7 +58,7 @@ public class Casilla {
     }
     
     int pagarAlquiler(){
-        int costeAlquiler = pagarAlquiler();
+        int costeAlquiler = titulo.pagarAlquiler();
         
         return costeAlquiler;
     }

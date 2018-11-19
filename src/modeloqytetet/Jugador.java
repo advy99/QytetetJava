@@ -23,16 +23,29 @@ public class Jugador implements Comparable {
     private ArrayList<TituloPropiedad> propiedades = new ArrayList<>();
     
     
-    Jugador(String nombre, Casilla casillaInicio){
+    Jugador(String nombre){
         this.nombre = nombre;
         cartaLibertad = null;
-        casillaActual = casillaInicio;
+        casillaActual = null;
     
     }
     
     
     boolean cancelarHipoteca(TituloPropiedad titulo){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean cancelada = false;
+        
+        int costeCancelar = titulo.calcularCosteCancelar();
+        
+        if (saldo >= costeCancelar){
+            modificarSaldo(-costeCancelar);
+            
+            
+            titulo.cancelarHipoteca();
+                        
+            cancelada = true;
+        }
+        
+        return cancelada;
     }
     
     boolean comprarTituloPropiedad(){
@@ -121,7 +134,28 @@ public class Jugador implements Comparable {
     }
     
     boolean edificarHotel(TituloPropiedad titulo){
-        throw new UnsupportedOperationException("Sin implementar");
+        boolean edificado = false;
+        
+        int numCasas = titulo.getNumCasas();
+        int numHoteles = titulo.getNumHoteles();
+        
+        if(numHoteles < 4 && numCasas > 4){
+            
+            int costeEdificarHotel = titulo.getPrecioCompra();
+            
+            boolean tengoSaldo = tengoSaldo(costeEdificarHotel);
+            
+            if (tengoSaldo){
+                titulo.edificarHotel();
+                
+                modificarSaldo(-costeEdificarHotel);
+                
+                edificado = true;
+            }
+            
+        }
+        
+        return edificado;
     }
     
     private void eliminarDeMisPropiedades(TituloPropiedad titulo){
@@ -137,9 +171,9 @@ public class Jugador implements Comparable {
         
     }
     
-    boolean estoyEnCalleLibre(){
-        throw new UnsupportedOperationException("Sin implementar");
-    }
+    //boolean estoyEnCalleLibre(){
+    //    throw new UnsupportedOperationException("Sin implementar");
+    //}
     
     Sorpresa getCartaLibertad(){
         return cartaLibertad;

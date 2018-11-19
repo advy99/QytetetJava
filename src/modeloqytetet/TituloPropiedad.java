@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package modeloqytetet;
+import java.lang.Math;
 
 /**
  *
@@ -40,41 +41,45 @@ public class TituloPropiedad {
     }
     
     int calcularCosteCancelar(){
-        throw new UnsupportedOperationException("Sin implementar");
+        int coste;
+        
+        coste = (int) Math.round(calcularCosteHipotecar() * 1.10);
+        
+        return coste;
     }
     
     int calcularCosteHipotecar(){
-        int costeHipoteca = hipotecaBase + (int) (numCasas * 0.5) + numHoteles * hipotecaBase;
+        int costeHipoteca = hipotecaBase + (int) Math.round( (numCasas * 0.5 ) ) + numHoteles * hipotecaBase;
         
         return costeHipoteca;
     }
     
     int calcularImporteAlquiler(){
-        int costeAlquiler = alquilerBase + (numCasas + numHoteles * 2);
+        int costeAlquiler = alquilerBase + ( (int) Math.round(numCasas * 0.5 ) + numHoteles * 2);
         
         return costeAlquiler;
     }
     
     int calcularPrecioVenta(){
-        int precioVenta = precioCompra + (numCasas + numHoteles ) * precioEdificar * (int) factorRevalorizacion;
+        int precioVenta = precioCompra + (numCasas + numHoteles ) * precioEdificar * (int) Math.round(factorRevalorizacion);
     
         return precioVenta;
     }
     
     void cancelarHipoteca(){
-        throw new UnsupportedOperationException("Sin implementar");
+        hipotecada = false;
     }
     
-    void cobrarAlquiler (int coste){
-        throw new UnsupportedOperationException("Sin implementar");
-    }
+    //void cobrarAlquiler (int coste){
+    //    throw new UnsupportedOperationException("Sin implementar");
+    //}
     
     void edificarCasa(){
         numCasas = numCasas + 1;
     }
     
     void edificarHotel(){
-        throw new UnsupportedOperationException("Sin implementar");
+        numCasas = numCasas - 4;
     }
     
     int getAlquilerBase() {

@@ -31,7 +31,7 @@ public class Dado {
     int tirar(){
         Random r = new Random();
         
-        valor = (r.nextInt() % 6) + 1;
+        valor = (r.nextInt(6) ) + 1;
         
         return valor;
     }
