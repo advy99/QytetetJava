@@ -5,7 +5,6 @@
  */
 package modeloqytetet;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -20,10 +19,7 @@ public class PruebaQytetet {
     //Instancia del juego Qytetet
     static Qytetet juego = Qytetet.getInstance();
     
-    
-    //Scanner para lectura de datos
-    private static final Scanner in = new Scanner (System.in);
-
+   
     
     /**
      * @brief Obtener las sorpresa con valor positivo
@@ -94,7 +90,7 @@ public class PruebaQytetet {
         
     }
    
-                                       
+    //AHORA ESTA EN LA INTERFAZ DE USUARIO                   
 
     private static ArrayList<String> getNombreJugadores(){
         
@@ -119,7 +115,7 @@ public class PruebaQytetet {
     
     public static void main(String[] args) {
         
-        /* PREBAS PRACTICA 1
+        /* PRUEBAS PRACTICA 1
         
         //Mostramos las cartas
         for (Sorpresa s: juego.getMazo()){
@@ -152,7 +148,7 @@ public class PruebaQytetet {
             
        */
         
-        juego.inicializarJuego(getNombreJugadores());
+        juego.inicializarJuego(obtenerNombreJugadores());
        
         System.out.println("El jugador actual es : ");
         System.out.println(juego.getJugadorActual().toString());
@@ -161,6 +157,7 @@ public class PruebaQytetet {
         System.out.println(juego.getJugadorActual().toString());
         
         juego.comprarTituloPropiedad();
+        juego.edificarCasa(juego.obtenerCasillaJugadorActual().getNumeroCasilla());
                 
         Jugador otro = juego.getJugadorActual();
         

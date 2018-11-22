@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import InterfazUsuarioQytetet.InterfazUsuarioQytetet;
+
 /**
  *
  * @author antonio
@@ -306,6 +308,10 @@ public class Qytetet {
         return dado;
     }
     
+    public EstadoJuego getEstadoJuego(){
+        return estadoJuego;
+    }
+    
     Jugador getJugadorActual(){
         return jugadorActual;
     }
@@ -314,7 +320,7 @@ public class Qytetet {
         return jugadores;
     }
     
-    public int getValorDado(){
+    public int obtenerValorDado(){
         return dado.getValor();
     }
     
@@ -501,10 +507,7 @@ public class Qytetet {
         setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
     }
     
-    public EstadoJuego getEstadoJuego(){
-        return estadoJuego;
-    }
-    
+  
     public void setEstadoJuego(EstadoJuego estado){
         estadoJuego = estado;
     }

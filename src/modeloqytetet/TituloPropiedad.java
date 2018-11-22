@@ -80,6 +80,7 @@ public class TituloPropiedad {
     
     void edificarHotel(){
         numCasas = numCasas - 4;
+        numHoteles = numHoteles + 1;
     }
     
     int getAlquilerBase() {

@@ -63,14 +63,14 @@ public class Casilla {
         return costeAlquiler;
     }
     
-    boolean propietarioEncarcelado(){
+    /*boolean propietarioEncarcelado(){
         boolean lo_esta = false;
         
         if(titulo != null)
             lo_esta = titulo.propietarioEncarcelado();
         
         return lo_esta;
-    }
+    }*/
     
     boolean soyEdificable(){
         return tipo == TipoCasilla.CALLE;
