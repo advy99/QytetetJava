@@ -160,6 +160,7 @@ public class Qytetet {
     public void aplicarSorpresa(){
         setEstadoJuego(EstadoJuego.JA_PUEDEGESTIONAR);
         
+        
         if (cartaActual.getTipo() == TipoSorpresa.SALIRCARCEL){
             jugadorActual.setCartaLibertad(cartaActual);
         }else{

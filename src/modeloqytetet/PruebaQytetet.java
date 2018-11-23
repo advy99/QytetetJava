@@ -195,6 +195,19 @@ public class PruebaQytetet {
         
         
         System.out.println(juego.getJugadores());
+        
+        
+        
+        
+        juego.mover(4);
+        
+        System.out.println(juego.getJugadorActual().toString());
+
+        juego.aplicarSorpresa();
+        
+        
+        System.out.println(juego.getJugadores());
+
 
         
         //System.out.println(juego.toString());

@@ -61,7 +61,7 @@ public class Sorpresa {
     
     @Override
     public String toString(){
-        return "Sorpresa{ texto= " + texto + ", valor= " + 
+        return "Sorpresa{ \ntexto= " + texto + ", valor= " + 
                 Integer.toString(valor) + ", tipo= " + tipo + "}"; 
     }
     
