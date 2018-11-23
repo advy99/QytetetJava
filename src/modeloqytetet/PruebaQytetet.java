@@ -189,7 +189,12 @@ public class PruebaQytetet {
         System.out.println(juego.getJugadorActual().toString());
 
         
+        juego.obtenerRanking();
         
+        System.out.println("----------------------------------------------------\n\n");
+        
+        
+        System.out.println(juego.getJugadores());
 
         
         //System.out.println(juego.toString());
