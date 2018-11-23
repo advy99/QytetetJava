@@ -54,7 +54,7 @@ public class Qytetet {
         return mazo;
     }
     
-    Tablero getTablero() {
+    public Tablero getTablero() {
         return tablero;
     }
     
@@ -312,7 +312,7 @@ public class Qytetet {
         return estadoJuego;
     }
     
-    Jugador getJugadorActual(){
+    public Jugador getJugadorActual(){
         return jugadorActual;
     }
     

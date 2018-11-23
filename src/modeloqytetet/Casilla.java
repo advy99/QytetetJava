@@ -37,7 +37,7 @@ public class Casilla {
         return titulo;
     }
     
-    int getNumeroCasilla() {
+    public int getNumeroCasilla() {
         return numeroCasilla;
     }
 
