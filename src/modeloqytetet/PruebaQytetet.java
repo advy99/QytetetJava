@@ -5,6 +5,7 @@
  */
 package modeloqytetet;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -12,6 +13,8 @@ import java.util.ArrayList;
  */
 public class PruebaQytetet {
 
+    private static final Scanner in = new Scanner (System.in);
+    
     /**
      * @param args the command line arguments
      */
@@ -148,7 +151,7 @@ public class PruebaQytetet {
             
        */
         
-        juego.inicializarJuego(obtenerNombreJugadores());
+        juego.inicializarJuego(getNombreJugadores());
        
         System.out.println("El jugador actual es : ");
         System.out.println(juego.getJugadorActual().toString());
@@ -167,6 +170,26 @@ public class PruebaQytetet {
 
         System.out.println(juego.getJugadorActual().toString());
         System.out.println(otro.toString());
+        
+        juego.siguienteJugador();
+        System.out.println(juego.getJugadorActual().toString());
+        
+        juego.hipotecarPropiedad(1);
+        
+        System.out.println(juego.getJugadorActual().toString());
+
+        
+        juego.cancelarHipoteca(1);
+        
+        System.out.println(juego.getJugadorActual().toString());
+
+        
+        juego.venderPropiedad(1);
+        
+        System.out.println(juego.getJugadorActual().toString());
+
+        
+        
 
         
         //System.out.println(juego.toString());
