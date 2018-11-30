@@ -100,6 +100,11 @@ public class Qytetet {
         mazo.add(new Sorpresa ("Encuentras un atajo en el camino.",
                  18, TipoSorpresa.IRACASILLA));
         
+        mazo.add(new Sorpresa ("Tienes buen ojo para los negocios " +
+                 "inmobiliarios, te dedicas a ello  ",3000, TipoSorpresa.CONVERTIRME));
+        
+        mazo.add(new Sorpresa ("Te aburres y decides dedicarte al sector inmobiliario",
+                               5000, TipoSorpresa.CONVERTIRME));
         
         Collections.shuffle(mazo);
     }
@@ -217,6 +222,16 @@ public class Qytetet {
                     }
                     
                 }
+            } else if(cartaActual.getTipo() == TipoSorpresa.CONVERTIRME){
+                
+                int posicion = jugadores.indexOf(jugadorActual);
+                
+                Especulador especulador = jugadorActual.convertirme(cartaActual.getValor());
+            
+                jugadores.set(posicion, especulador);
+                
+                jugadorActual = especulador;
+                
             }
         }
         
@@ -283,7 +298,7 @@ public class Qytetet {
     }
     
     private void encarcelarJugador(){
-        if (!jugadorActual.tengoCartaLibertad()){
+        if (!jugadorActual.deboIrACarcel()){
             Casilla casillaCarcel = tablero.getCarcel();
             
             jugadorActual.irACarcel(casillaCarcel);

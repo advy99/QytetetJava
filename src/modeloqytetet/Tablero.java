@@ -93,7 +93,7 @@ public class Tablero {
         casillas.add(new Casilla(6, 700, TipoCasilla.IMPUESTO));
         casillas.add(new Casilla(7, t5));
         casillas.add(new Casilla(8, t6));
-        casillas.add(new Casilla(9, 0, TipoCasilla.CARCEL));
+        casillas.add(new Casilla(9, 500, TipoCasilla.CARCEL));
         casillas.add(new Casilla(10, t7));
         casillas.add(new Casilla(11, t8));
         casillas.add(new Casilla(12, 0, TipoCasilla.SORPRESA));

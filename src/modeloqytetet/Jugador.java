@@ -30,6 +30,16 @@ public class Jugador implements Comparable {
     
     }
     
+    protected Jugador (Jugador otroJugador){
+        this.encarcelado = otroJugador.encarcelado;
+        this.nombre = otroJugador.nombre;
+        this.saldo = otroJugador.saldo;
+        this.cartaLibertad = otroJugador.cartaLibertad;
+        this.casillaActual = otroJugador.casillaActual;
+        this.propiedades = otroJugador.propiedades;
+    }
+    
+    
     
     boolean cancelarHipoteca(TituloPropiedad titulo){
         boolean cancelada = false;
@@ -46,6 +56,12 @@ public class Jugador implements Comparable {
         }
         
         return cancelada;
+    }
+    
+    protected Especulador convertirme(int fianza){
+        Especulador especulador = new Especulador(this, fianza);
+        
+        return especulador;
     }
     
     boolean comprarTituloPropiedad(){
@@ -75,6 +91,10 @@ public class Jugador implements Comparable {
         }
         
         return total;
+    }
+    
+    protected boolean deboIrACarcel(){
+        return  (!tengoCartaLibertad());
     }
     
     boolean deboPagarAlquiler(){
@@ -115,9 +135,9 @@ public class Jugador implements Comparable {
     boolean edificarCasa(TituloPropiedad titulo){
         boolean edificada = false;
         
-        int numCasas = titulo.getNumCasas();
+        //int numCasas = titulo.getNumCasas();
         
-        if (numCasas < 4){
+        if (puedoEdificarCasa(titulo)){
             int costeEdificarCasa = titulo.getPrecioEdificar();
             
             boolean tengoSaldo = tengoSaldo(costeEdificarCasa);
@@ -138,10 +158,12 @@ public class Jugador implements Comparable {
     boolean edificarHotel(TituloPropiedad titulo){
         boolean edificado = false;
         
-        int numCasas = titulo.getNumCasas();
-        int numHoteles = titulo.getNumHoteles();
+        //int numCasas = titulo.getNumCasas();
+        //int numHoteles = titulo.getNumHoteles();
         
-        if(numHoteles < 4 && numCasas > 4){
+        
+        
+        if(puedoEdificarHotel(titulo)){
             
             int costeEdificarHotel = titulo.getPrecioCompra();
             
@@ -251,8 +273,8 @@ public class Jugador implements Comparable {
         modificarSaldo(-costeAlquiler);
     }
     
-    void pagarImpuesto(){
-        saldo -= casillaActual.getCoste();
+    protected void pagarImpuesto(){
+        modificarSaldo(getCasillaActual().getCoste());
     }
     
     void pagarLibertad(int cantidad){
@@ -264,6 +286,24 @@ public class Jugador implements Comparable {
             modificarSaldo(-cantidad);
         }
     }
+    
+    protected boolean puedoEdificarCasa(TituloPropiedad titulo){
+        boolean puedo = false;
+        
+        puedo = titulo.getNumCasas() < 4 && tengoSaldo(titulo.getPrecioEdificar());
+        
+        return puedo;
+    }
+    
+    protected boolean puedoEdificarHotel(TituloPropiedad titulo){
+        boolean puedo = false;
+        
+        puedo = titulo.getNumHoteles() < 4 && titulo.getNumCasas() == 4 &&
+                tengoSaldo(titulo.getPrecioEdificar());
+        
+        return puedo;
+    }
+    
     
     void setCartaLibertad(Sorpresa carta) {
         cartaLibertad = carta;
@@ -281,7 +321,7 @@ public class Jugador implements Comparable {
         return cartaLibertad != null;
     }
     
-    private boolean tengoSaldo(int cantidad) {
+    protected boolean tengoSaldo(int cantidad) {
         return saldo >= cantidad;
     }
     
