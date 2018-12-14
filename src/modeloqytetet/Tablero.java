@@ -84,26 +84,26 @@ public class Tablero {
 
 
         
-        casillas.add(new Casilla(0,1000, TipoCasilla.SALIDA));
-        casillas.add(new Casilla(1, t1));
-        casillas.add(new Casilla(2, t2));
-        casillas.add(new Casilla(3, t3));
-        casillas.add(new Casilla(4, 0, TipoCasilla.SORPRESA));
-        casillas.add(new Casilla(5, t4));
-        casillas.add(new Casilla(6, 700, TipoCasilla.IMPUESTO));
-        casillas.add(new Casilla(7, t5));
-        casillas.add(new Casilla(8, t6));
-        casillas.add(new Casilla(9, 500, TipoCasilla.CARCEL));
-        casillas.add(new Casilla(10, t7));
-        casillas.add(new Casilla(11, t8));
-        casillas.add(new Casilla(12, 0, TipoCasilla.SORPRESA));
-        casillas.add(new Casilla(13, t9));
-        casillas.add(new Casilla(14, 0, TipoCasilla.PARKING));
-        casillas.add(new Casilla(15, t10));
-        casillas.add(new Casilla(16, 0, TipoCasilla.SORPRESA));
-        casillas.add(new Casilla(17, t11));
-        casillas.add(new Casilla(18, 0, TipoCasilla.JUEZ));
-        casillas.add(new Casilla(19, t12));
+        casillas.add(new OtraCasilla(0,1000, TipoCasilla.SALIDA));
+        casillas.add(new Calle(1, t1));
+        casillas.add(new Calle(2, t2));
+        casillas.add(new Calle(3, t3));
+        casillas.add(new OtraCasilla(4, 0, TipoCasilla.SORPRESA));
+        casillas.add(new Calle(5, t4));
+        casillas.add(new OtraCasilla(6, 700, TipoCasilla.IMPUESTO));
+        casillas.add(new Calle(7, t5));
+        casillas.add(new Calle(8, t6));
+        casillas.add(new OtraCasilla(9, 500, TipoCasilla.CARCEL));
+        casillas.add(new Calle(10, t7));
+        casillas.add(new Calle(11, t8));
+        casillas.add(new OtraCasilla(12, 0, TipoCasilla.SORPRESA));
+        casillas.add(new Calle(13, t9));
+        casillas.add(new OtraCasilla(14, 0, TipoCasilla.PARKING));
+        casillas.add(new Calle(15, t10));
+        casillas.add(new OtraCasilla(16, 0, TipoCasilla.SORPRESA));
+        casillas.add(new Calle(17, t11));
+        casillas.add(new OtraCasilla(18, 0, TipoCasilla.JUEZ));
+        casillas.add(new Calle(19, t12));
         
         carcel = casillas.get(9);
     }

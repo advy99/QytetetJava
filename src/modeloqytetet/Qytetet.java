@@ -128,7 +128,7 @@ public class Qytetet {
         
         Casilla casilla = obtenerCasillaJugadorActual();
         
-        boolean tengoPropietario = casilla.tengoPropietario();
+        boolean tengoPropietario = ((Calle) casilla).tengoPropietario();
         
         if (estadoJuego != EstadoJuego.ALGUNJUGADORENBANCARROTA){
             if (tengoPropietario){

@@ -9,14 +9,13 @@ package modeloqytetet;
  *
  * @author antonio
  */
-public class Casilla {
+public abstract class Casilla {
     
     private int numeroCasilla;
     private int coste;
-    private TipoCasilla tipo;
-    private TituloPropiedad titulo;
+    //private TipoCasilla tipo;
     
-    Casilla(int numeroCasilla, TituloPropiedad titulo){
+    /*Casilla(int numeroCasilla, TituloPropiedad titulo){
         this.numeroCasilla = numeroCasilla;
         this.tipo = TipoCasilla.CALLE;
         setTitulo(titulo);
@@ -29,13 +28,13 @@ public class Casilla {
         this.tipo = tipo;
         this.coste = n_coste;
         this.titulo = null;
+    }*/
+    
+    Casilla (int numeroCasilla, int coste){
+        this.numeroCasilla = numeroCasilla;
+        this.coste = coste;
     }
     
-    TituloPropiedad asignarPropietario(Jugador jugador){
-        titulo.setPropietario(jugador);
-        
-        return titulo;
-    }
     
     public int getNumeroCasilla() {
         return numeroCasilla;
@@ -45,23 +44,18 @@ public class Casilla {
         return coste;
     }
 
-    TipoCasilla getTipo() {
-        return tipo;
-    }
+    protected abstract TipoCasilla getTipo();
 
-    TituloPropiedad getTitulo() {
+    protected abstract TituloPropiedad getTitulo(); /*{
         return titulo;  
-    }
+    }*/
 
-    private void setTitulo(TituloPropiedad titulo) {
-        this.titulo = titulo;
-    }
-    
-    int pagarAlquiler(){
+  
+    /*int pagarAlquiler(){
         int costeAlquiler = titulo.pagarAlquiler();
         
         return costeAlquiler;
-    }
+    }*/
     
     /*boolean propietarioEncarcelado(){
         boolean lo_esta = false;
@@ -72,21 +66,23 @@ public class Casilla {
         return lo_esta;
     }*/
     
-    boolean soyEdificable(){
-        return tipo == TipoCasilla.CALLE;
+    public void setCoste(int coste){
+        this.coste = coste;
     }
     
-    boolean tengoPropietario(){
+    protected abstract boolean soyEdificable();
+    
+    /*boolean tengoPropietario(){
         boolean lo_tengo = false;
         
         if(titulo != null)
             lo_tengo = titulo.tengoPropietario();
         
         return lo_tengo;
-    }
+    }*/
     
     
-    @Override
+    /*@Override
     public String toString(){
         
         String texto = "";
@@ -100,7 +96,7 @@ public class Casilla {
         }
      
         return texto;
-    }
+    }*/
     
     
 }

@@ -70,11 +70,11 @@ public class Jugador implements Comparable {
         int costeCompra = casillaActual.getCoste();
         
         if(costeCompra < saldo){
-            TituloPropiedad titulo = casillaActual.asignarPropietario(this);
+            ((Calle) casillaActual).asignarPropietario(this);
             
             comprado = true;
             
-            propiedades.add(titulo);
+            propiedades.add(casillaActual.getTitulo());
             
             modificarSaldo(-costeCompra);
         }
@@ -138,17 +138,13 @@ public class Jugador implements Comparable {
         //int numCasas = titulo.getNumCasas();
         
         if (puedoEdificarCasa(titulo)){
-            int costeEdificarCasa = titulo.getPrecioEdificar();
             
-            boolean tengoSaldo = tengoSaldo(costeEdificarCasa);
+            titulo.edificarCasa();
+
+            modificarSaldo(-titulo.getPrecioEdificar());
+
+            edificada = true;
             
-            if (tengoSaldo){
-                titulo.edificarCasa();
-                
-                modificarSaldo(-costeEdificarCasa);
-                
-                edificada = true;
-            }
         }
         
         return edificada;
@@ -165,18 +161,14 @@ public class Jugador implements Comparable {
         
         if(puedoEdificarHotel(titulo)){
             
-            int costeEdificarHotel = titulo.getPrecioCompra();
+           
+            titulo.edificarHotel();
+
+            modificarSaldo(-titulo.getPrecioEdificar());
+
+            edificado = true;
             
-            boolean tengoSaldo = tengoSaldo(costeEdificarHotel);
-            
-            if (tengoSaldo){
-                titulo.edificarHotel();
-                
-                modificarSaldo(-costeEdificarHotel);
-                
-                edificado = true;
-            }
-            
+           
         }
         
         return edificado;
@@ -268,7 +260,7 @@ public class Jugador implements Comparable {
     }
     
     void pagarAlquiler(){
-        int costeAlquiler = casillaActual.pagarAlquiler();
+        int costeAlquiler = ((Calle) casillaActual).pagarAlquiler();
         
         modificarSaldo(-costeAlquiler);
     }
