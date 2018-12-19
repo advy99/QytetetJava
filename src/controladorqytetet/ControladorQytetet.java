@@ -26,49 +26,49 @@ public class ControladorQytetet {
         ArrayList<Integer> operacionesValidas = new ArrayList<>();
         //cambiar al ordinal
         if (modelo.getJugadores() == null || modelo.getJugadores().isEmpty()){
-            operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.INICIARJUEGO.ordinal());
+            operacionesValidas.add(OpcionMenu.INICIARJUEGO.ordinal());
         }else{
             EstadoJuego estado = modelo.getEstadoJuego();
             if (estado == EstadoJuego.JA_PREPARADO){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.JUGAR.ordinal());
+                operacionesValidas.add(OpcionMenu.JUGAR.ordinal());
             
             }else if(estado == EstadoJuego.ALGUNJUGADORENBANCARROTA){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.OBTENERRANKING.ordinal());
+                operacionesValidas.add(OpcionMenu.OBTENERRANKING.ordinal());
             
             }else if(estado == EstadoJuego.JA_CONSORPRESA){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.APLICARSORPRESA.ordinal());
+                operacionesValidas.add(OpcionMenu.APLICARSORPRESA.ordinal());
             
             }else if(estado == EstadoJuego.JA_ENCARCELADOCONOPCIONDELIBERTAD){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.INTENTARSALIRCARCELPAGANDOLIBERTAD.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.INTENTARSALIRCARCELTIRANDODADO.ordinal());
+                operacionesValidas.add(OpcionMenu.INTENTARSALIRCARCELPAGANDOLIBERTAD.ordinal());
+                operacionesValidas.add(OpcionMenu.INTENTARSALIRCARCELTIRANDODADO.ordinal());
             
             }else if(estado == EstadoJuego.JA_ENCARCELADO){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.PASARTURNO.ordinal());
+                operacionesValidas.add(OpcionMenu.PASARTURNO.ordinal());
             
             }else if(estado == EstadoJuego.JA_PUEDEGESTIONAR){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.VENDERPROPIEDAD.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.HIPOTECARPROPIEDAD.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.CANCELARHIPOTECA.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.EDIFICARCASA.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.EDIFICARHOTEL.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.PASARTURNO.ordinal());
+                operacionesValidas.add(OpcionMenu.VENDERPROPIEDAD.ordinal());
+                operacionesValidas.add(OpcionMenu.HIPOTECARPROPIEDAD.ordinal());
+                operacionesValidas.add(OpcionMenu.CANCELARHIPOTECA.ordinal());
+                operacionesValidas.add(OpcionMenu.EDIFICARCASA.ordinal());
+                operacionesValidas.add(OpcionMenu.EDIFICARHOTEL.ordinal());
+                operacionesValidas.add(OpcionMenu.PASARTURNO.ordinal());
             
             }else if(estado == EstadoJuego.JA_PUEDECOMPRAROGESTIONAR){
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.COMPRARTITULOPROPIEDAD.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.VENDERPROPIEDAD.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.HIPOTECARPROPIEDAD.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.CANCELARHIPOTECA.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.EDIFICARCASA.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.EDIFICARHOTEL.ordinal());
-                operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.PASARTURNO.ordinal());
+                operacionesValidas.add(OpcionMenu.COMPRARTITULOPROPIEDAD.ordinal());
+                operacionesValidas.add(OpcionMenu.VENDERPROPIEDAD.ordinal());
+                operacionesValidas.add(OpcionMenu.HIPOTECARPROPIEDAD.ordinal());
+                operacionesValidas.add(OpcionMenu.CANCELARHIPOTECA.ordinal());
+                operacionesValidas.add(OpcionMenu.EDIFICARCASA.ordinal());
+                operacionesValidas.add(OpcionMenu.EDIFICARHOTEL.ordinal());
+                operacionesValidas.add(OpcionMenu.PASARTURNO.ordinal());
                 
                 
             }
             
-            operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.TERMINARJUEGO.ordinal());
-            operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.MOSTRARJUGADORACTUAL.ordinal());
-            operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.MOSTRARJUGADORES.ordinal());
-            operacionesValidas.add(InterfazUsuarioQytetet.OpcionMenu.MOSTRARTABLERO.ordinal());
+            operacionesValidas.add(OpcionMenu.TERMINARJUEGO.ordinal());
+            operacionesValidas.add(OpcionMenu.MOSTRARJUGADORACTUAL.ordinal());
+            operacionesValidas.add(OpcionMenu.MOSTRARJUGADORES.ordinal());
+            operacionesValidas.add(OpcionMenu.MOSTRARTABLERO.ordinal());
 
         }
         
@@ -154,17 +154,17 @@ public class ControladorQytetet {
     public ArrayList<Integer> obtenerCasillasValidas(int opcionMenu){
         ArrayList<Integer> casillasValidas = new ArrayList<>();
         
-        InterfazUsuarioQytetet.OpcionMenu opcion = InterfazUsuarioQytetet.OpcionMenu.values()[opcionMenu];
+        OpcionMenu opcion = OpcionMenu.values()[opcionMenu];
         
-        if (opcion == InterfazUsuarioQytetet.OpcionMenu.CANCELARHIPOTECA){
+        if (opcion == OpcionMenu.CANCELARHIPOTECA){
             casillasValidas = modelo.obtenerPropiedadesJugadorSegunEstadoHipoteca(true);
-        } else if (opcion == InterfazUsuarioQytetet.OpcionMenu.COMPRARTITULOPROPIEDAD){
+        } else if (opcion == OpcionMenu.COMPRARTITULOPROPIEDAD){
             casillasValidas.add(modelo.obtenerCasillaJugadorActual().getNumeroCasilla());
-        } else if (opcion == InterfazUsuarioQytetet.OpcionMenu.EDIFICARCASA || opcion == InterfazUsuarioQytetet.OpcionMenu.EDIFICARHOTEL){
+        } else if (opcion == OpcionMenu.EDIFICARCASA || opcion == OpcionMenu.EDIFICARHOTEL){
             casillasValidas = modelo.obtenerPropiedadesJugador();
-        } else if (opcion == InterfazUsuarioQytetet.OpcionMenu.HIPOTECARPROPIEDAD){
+        } else if (opcion == OpcionMenu.HIPOTECARPROPIEDAD){
             casillasValidas = modelo.obtenerPropiedadesJugadorSegunEstadoHipoteca(false);
-        } else if (opcion == InterfazUsuarioQytetet.OpcionMenu.VENDERPROPIEDAD){
+        } else if (opcion == OpcionMenu.VENDERPROPIEDAD){
             casillasValidas = modelo.obtenerPropiedadesJugador();
         }
         
