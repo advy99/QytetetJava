@@ -242,7 +242,7 @@ public class InterfazUsuarioQytetet {
     
     /**
      * @param args the command line arguments
-     */
+     
     public static void main(String[] args) {
         InterfazUsuarioQytetet ui = new InterfazUsuarioQytetet();
         
@@ -261,6 +261,6 @@ public class InterfazUsuarioQytetet {
             }
             
         }while (!salir);
-    }
+    }*/
     
 }

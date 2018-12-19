@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-import InterfazUsuarioQytetet.InterfazUsuarioQytetet;
-
 /**
  *
  * @author antonio

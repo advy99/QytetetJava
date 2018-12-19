@@ -115,10 +115,10 @@ public class PruebaQytetet {
         return nombres;
     }
                                        
-    
+    /*
     public static void main(String[] args) {
         
-        /* PRUEBAS PRACTICA 1
+         PRUEBAS PRACTICA 1
         
         //Mostramos las cartas
         for (Sorpresa s: juego.getMazo()){
@@ -149,7 +149,6 @@ public class PruebaQytetet {
         
         System.out.println(juego.getTablero().toString());
             
-       */
         
         juego.inicializarJuego(getNombreJugadores());
        
@@ -213,5 +212,7 @@ public class PruebaQytetet {
         //System.out.println(juego.toString());
        
     }
+
+    */
     
 }
