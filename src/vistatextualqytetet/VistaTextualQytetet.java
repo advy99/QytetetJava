@@ -17,7 +17,7 @@ public class VistaTextualQytetet {
     
     private static final Scanner in = new Scanner (System.in);
 
-    private ControladorQytetet controlador = new ControladorQytetet();
+    private ControladorQytetet controlador = ControladorQytetet.getInstance();
     
     public int elegirCasilla(int ordinalOpcionMenu){
         ArrayList<Integer> casillasValidas = controlador.obtenerCasillasValidas(ordinalOpcionMenu);

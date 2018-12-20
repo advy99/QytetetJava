@@ -77,7 +77,7 @@ public class Qytetet {
         
         mazo.add(new Sorpresa ("No era tu cumpleaños, ¡mentiroso!. Debes darle"
                  + " a los demás lo que te han dado con intereses, 300 euros a "
-                 + "cada uno", -300, TipoSorpresa.PORJUGADOR));
+                 + "cada uno", 300, TipoSorpresa.PORJUGADOR));
         
         mazo.add(new Sorpresa ("Eres muy emprendedor, obtienes 100 euros por "+
                 "cada casa y hotel que poseas",
@@ -96,7 +96,7 @@ public class Qytetet {
                  "Ve a la casilla de salida.", 0, TipoSorpresa.IRACASILLA));
         
         mazo.add(new Sorpresa ("Encuentras un atajo en el camino.",
-                 18, TipoSorpresa.IRACASILLA));
+                 15, TipoSorpresa.IRACASILLA));
         
         mazo.add(new Sorpresa ("Tienes buen ojo para los negocios " +
                  "inmobiliarios, te dedicas a ello  ",3000, TipoSorpresa.CONVERTIRME));
@@ -402,6 +402,7 @@ public class Qytetet {
         Casilla casillaFinal;
         
         int v_dado = tirarDado();
+        
         
         casillaFinal = tablero.obtenerCasillaFinal(jugadorActual.getCasillaActual(), v_dado);
         

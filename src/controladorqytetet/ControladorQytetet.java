@@ -20,6 +20,16 @@ public class ControladorQytetet {
     
     private ArrayList<String> nombreJugadores = new ArrayList<>();
     
+    private static final ControladorQytetet instance = new ControladorQytetet();
+
+    
+    private ControladorQytetet(){
+    
+    }
+    
+    public static ControladorQytetet getInstance(){
+        return instance;
+    }
   
     
     public ArrayList<Integer> obtenerOperacionesJuegoValidas(){

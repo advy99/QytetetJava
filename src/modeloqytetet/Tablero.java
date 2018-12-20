@@ -46,40 +46,40 @@ public class Tablero {
     private void inicializar(){
         casillas = new ArrayList<>();
         
-        TituloPropiedad t1 = new TituloPropiedad( "Calle", 713, 207,
+        TituloPropiedad t1 = new TituloPropiedad( "DEIIT", 713, 207,
                                                 (float) 1.3, 3000, 300);
         
-        TituloPropiedad t2 = new TituloPropiedad( "Avenida", 1300, 400,
+        TituloPropiedad t2 = new TituloPropiedad( "OSL", 1300, 400,
                                                 (float) 1.9, 4000, 600);
         
-        TituloPropiedad t3 = new TituloPropiedad( "Carretera", 599, 150,
+        TituloPropiedad t3 = new TituloPropiedad( "UGR", 599, 150,
                                                 (float) 0.9, 1400, 1975);
         
-        TituloPropiedad t4 = new TituloPropiedad( "Rotonda", 1720, 450,
+        TituloPropiedad t4 = new TituloPropiedad( "Matematica Aplicada", 1720, 450,
                                                 (float) 1, 4000, 1999);
         
-        TituloPropiedad t5 = new TituloPropiedad( "Acera", 502, 130,
+        TituloPropiedad t5 = new TituloPropiedad( "EIO", 502, 130,
                                                 (float) 0.6, 900, 800);
         
-        TituloPropiedad t6 = new TituloPropiedad( "CarrilBici", 912, 234,
+        TituloPropiedad t6 = new TituloPropiedad( "ETC", 912, 234,
                                                 (float) 0.8, 1800, 1120);
         
-        TituloPropiedad t7 = new TituloPropiedad( "Metro", 3290, 700,
+        TituloPropiedad t7 = new TituloPropiedad( "TSCS", 3290, 700,
                                                 (float) 2.5, 6000, 2800);
         
-        TituloPropiedad t8 = new TituloPropiedad( "Bus", 560, 140,
+        TituloPropiedad t8 = new TituloPropiedad( "Analisis Matematico", 560, 140,
                                                 (float) 2.9, 1200, 600);
         
-        TituloPropiedad t9 = new TituloPropiedad( "Taxi", 1543, 320,
+        TituloPropiedad t9 = new TituloPropiedad( "Algebra", 1543, 320,
                                                 (float) 1.2, 3500, 2000);
 
-        TituloPropiedad t10 = new TituloPropiedad( "Coche", 3198, 690,
+        TituloPropiedad t10 = new TituloPropiedad( "DECSAI", 3198, 690,
                                                 (float) 2.2, 10000, 1790);
 
-        TituloPropiedad t11 = new TituloPropiedad( "Tranvia", 587, 100,
+        TituloPropiedad t11 = new TituloPropiedad( "LSI", 587, 100,
                                                 (float) 0.2, 10000, 400);
 
-        TituloPropiedad t12 = new TituloPropiedad( "Limusina", 890, 300,
+        TituloPropiedad t12 = new TituloPropiedad( "ATC", 890, 300,
                                                 (float) 3.2, 10000, 200);
 
 

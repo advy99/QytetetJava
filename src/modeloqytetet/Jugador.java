@@ -290,7 +290,7 @@ public class Jugador implements Comparable {
     protected boolean puedoEdificarHotel(TituloPropiedad titulo){
         boolean puedo = false;
         
-        puedo = titulo.getNumHoteles() < 4 && titulo.getNumCasas() == 4 &&
+        puedo = titulo.getNumHoteles() < 4 && titulo.getNumCasas() >= 4 &&
                 tengoSaldo(titulo.getPrecioEdificar());
         
         return puedo;
