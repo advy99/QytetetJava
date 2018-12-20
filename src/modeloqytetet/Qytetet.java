@@ -73,7 +73,7 @@ public class Qytetet {
         
         mazo.add(new Sorpresa ("Es tu cumpleaños y tus compañeros son " +
                " generosos, cada jugador te da 200 euros",
-                 200, TipoSorpresa.PORJUGADOR));
+                 -200, TipoSorpresa.PORJUGADOR));
         
         mazo.add(new Sorpresa ("No era tu cumpleaños, ¡mentiroso!. Debes darle"
                  + " a los demás lo que te han dado con intereses, 300 euros a "

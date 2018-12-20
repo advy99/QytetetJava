@@ -63,6 +63,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         jMenuCasilla = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Qytetet");
 
         areaMensajes.setColumns(20);
         areaMensajes.setRows(5);
@@ -242,22 +243,15 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
     }
     
     public void itemCasillaMenuActionPerformed(java.awt.event.ActionEvent evt){
-        boolean encontrado = false;
-        int casilla = 0;
-
-        /*
-        for(int i = 0; i < 20 && !encontrado; i++){
-            if(Integer.toString(i) == evt.getActionCommand()){
-                encontrado = true;
-                
-                casilla = i;
-            }
-        }*/
+        int casilla;
         
         casilla = Integer.parseInt(evt.getActionCommand());
         
         
         controlador.realizarOperacion(operacionElegida, casilla);
+        
+        
+        areaMensajes.setText("");
         
         update();
 

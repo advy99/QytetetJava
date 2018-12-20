@@ -38,6 +38,7 @@ public class DialogoNombres extends javax.swing.JDialog {
         botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Qytetet");
 
         campoJugador1.setText("Jugador 1");
 
