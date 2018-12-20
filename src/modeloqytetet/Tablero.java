@@ -110,7 +110,7 @@ public class Tablero {
     
     
     boolean esCasillaCarcel(int numCasilla){
-        return numCasilla == carcel.getNumeroCasilla();
+        return (numCasilla == carcel.getNumeroCasilla());
     }
     
     Casilla getCarcel() {

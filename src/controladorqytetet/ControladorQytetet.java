@@ -96,7 +96,7 @@ public class ControladorQytetet {
         if (opcionElegida == 0){ 
             modelo.inicializarJuego(nombreJugadores);
         } else if (opcionElegida == 1){
-            aDevolver = modelo.getJugadorActual().toString();
+            //aDevolver = modelo.getJugadorActual().toString();
             modelo.jugar();
             aDevolver += "\nHa salido un " + modelo.obtenerValorDado();
             aDevolver += "\nEl jugador se ha movido a la casilla " + modelo.obtenerCasillaJugadorActual();

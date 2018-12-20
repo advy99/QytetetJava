@@ -108,23 +108,30 @@ public class DialogoNombres extends javax.swing.JDialog {
     
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
         
+        int numJugadores = 0;
         if (! campoJugador1.getText().isEmpty()){
             nombres.add(campoJugador1.getText());
+            numJugadores++;
         }
         
         if (! campoJugador2.getText().isEmpty()){
             nombres.add(campoJugador2.getText());
+            numJugadores++;
+
         }
         
         if (! campoJugador3.getText().isEmpty()){
             nombres.add(campoJugador3.getText());
+            numJugadores++;
         }
        
         if (! campoJugador4.getText().isEmpty()){
             nombres.add(campoJugador4.getText());
+            numJugadores++;
         }
-        
-        dispose();
+        if(numJugadores >= 2){
+            dispose();
+        }
     }//GEN-LAST:event_botonJugarActionPerformed
 
     private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed

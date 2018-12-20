@@ -61,6 +61,7 @@ public class Qytetet {
      */
     private void inicializarCartasSorpresa(){
         
+       
         
         mazo.add(new Sorpresa ("Un fan anónimo ha pagado tu fianza. Sales " +
                  "de la cárcel", 0, TipoSorpresa.SALIRCARCEL));
@@ -87,7 +88,7 @@ public class Qytetet {
                  " los demás. Paga 150 euros por cada casa y hotel", -150, 
                   TipoSorpresa.PORCASAHOTEL));
         
-        mazo.add(new Sorpresa ("Te hemos pillado con chanclas y calcetines," +
+         mazo.add(new Sorpresa ("Te hemos pillado con chanclas y calcetines," +
                  "lo sentimos, ¡debes ir a la carcel!",
                   tablero.getCarcel().getNumeroCasilla(),
                   TipoSorpresa.IRACASILLA));
@@ -185,7 +186,9 @@ public class Qytetet {
                 boolean casillaCarcel = tablero.esCasillaCarcel(valor);
                 
                 if (casillaCarcel){
+                    System.out.println("balballbdalabdl");
                     encarcelarJugador();
+                    
                 }else{
                     mover(valor);
                 }
@@ -296,7 +299,7 @@ public class Qytetet {
     }
     
     private void encarcelarJugador(){
-        if (!jugadorActual.deboIrACarcel()){
+        if (jugadorActual.deboIrACarcel()){
             Casilla casillaCarcel = tablero.getCarcel();
             
             jugadorActual.irACarcel(casillaCarcel);

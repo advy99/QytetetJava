@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import modeloqytetet.Qytetet;
 import controladorqytetet.*;
-import javax.swing.*;
 
 /**
  *
@@ -58,6 +57,11 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         panelJugadores = new javax.swing.JScrollPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         areaJugadores = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         jMenuOperacion = new javax.swing.JMenu();
         jMenuCasilla = new javax.swing.JMenu();
@@ -89,11 +93,23 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
 
         panelTablero.setViewportView(jScrollPane4);
 
+        panelJugadores.setToolTipText("");
+
         areaJugadores.setColumns(20);
         areaJugadores.setRows(5);
         jScrollPane5.setViewportView(areaJugadores);
 
         panelJugadores.setViewportView(jScrollPane5);
+
+        jLabel1.setText("Jugadores");
+
+        jLabel2.setText("Tablero");
+
+        jLabel3.setText("Jugador actual");
+
+        jLabel4.setText("Carta actual");
+
+        jLabel5.setText("Mensajes");
 
         jMenuOperacion.setText("Menu Operacion");
         barraMenu.add(jMenuOperacion);
@@ -107,32 +123,55 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panelJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelJugadorActual, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelCartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(panelJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(12, 12, 12)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(panelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2))
+                            .addGap(12, 12, 12)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(panelJugadorActual, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(30, 30, 30)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(panelCartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)))
+                        .addComponent(panelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 1285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelTablero, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
-                    .addComponent(panelMensajes)
-                    .addComponent(panelJugadores)
-                    .addComponent(panelJugadorActual))
-                .addGap(18, 18, 18)
-                .addComponent(panelCartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelCartaActual, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                            .addComponent(panelJugadorActual, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panelTablero, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
+                .addComponent(panelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -236,7 +275,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
             areaMensajes.setText("\nNecesitas escoger una casilla\n");
             
         }else{
-            controlador.realizarOperacion(operacionElegida, 0);
+            areaMensajes.setText(controlador.realizarOperacion(operacionElegida, 0));
         }
         
         update();
@@ -247,11 +286,9 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         
         casilla = Integer.parseInt(evt.getActionCommand());
         
-        
-        controlador.realizarOperacion(operacionElegida, casilla);
-        
-        
-        areaMensajes.setText("");
+        areaMensajes.setText("\n Se va a " + OpcionMenu.values()[operacionElegida].toString() + 
+                             " en la casilla " + casilla + "\n\n" + controlador.realizarOperacion(operacionElegida, casilla));
+
         
         update();
 
@@ -268,6 +305,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
             }
             
         }
+        
     }
     
     public void updateJMenuCasillas(int opcionMenu){
@@ -290,6 +328,8 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         
         if(modelo.getCartaActual() != null){
             areaCartaActual.setText(modelo.getCartaActual().toString());
+        }else {
+            areaCartaActual.setText("");
         }
         
         areaTablero.setText(modelo.getTablero().toString());
@@ -322,6 +362,11 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
     private javax.swing.JTextArea areaMensajes;
     private javax.swing.JTextArea areaTablero;
     private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenuCasilla;
     private javax.swing.JMenu jMenuOperacion;
     private javax.swing.JScrollPane jScrollPane1;
@@ -336,3 +381,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
     private javax.swing.JScrollPane panelTablero;
     // End of variables declaration//GEN-END:variables
 }
+
+
+//vender propiedad casas  a 0 ?
+
