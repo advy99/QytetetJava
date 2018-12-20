@@ -41,15 +41,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Component id="panelJugadores" min="-2" pref="341" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="panelMensajes" min="-2" pref="244" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="panelJugadores" min="-2" pref="362" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelMensajes" min="-2" pref="256" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="panelTablero" min="-2" pref="300" max="-2" attributes="0"/>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
-              <Component id="panelJugadorActual" min="-2" pref="299" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelJugadorActual" min="-2" pref="340" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -63,14 +63,12 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="panelJugadorActual" min="-2" pref="349" max="-2" attributes="0"/>
-                  <Component id="panelJugadores" min="-2" pref="401" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="panelTablero" alignment="0" pref="349" max="32767" attributes="0"/>
-                      <Component id="panelMensajes" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="panelTablero" pref="528" max="32767" attributes="0"/>
+                  <Component id="panelMensajes" max="32767" attributes="0"/>
+                  <Component id="panelJugadores" max="32767" attributes="0"/>
+                  <Component id="panelJugadorActual" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="panelCartaActual" min="-2" pref="216" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

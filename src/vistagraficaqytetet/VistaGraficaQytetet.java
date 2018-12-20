@@ -107,15 +107,15 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(panelJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
+                .addComponent(panelJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelMensajes, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(panelJugadorActual, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelJugadorActual, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelCartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 1221, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,12 +126,11 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelJugadorActual, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(panelTablero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                        .addComponent(panelMensajes, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                    .addComponent(panelTablero, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+                    .addComponent(panelMensajes)
+                    .addComponent(panelJugadores)
+                    .addComponent(panelJugadorActual))
+                .addGap(18, 18, 18)
                 .addComponent(panelCartaActual, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -207,7 +206,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
             itemCasillaMenu.setText(Integer.toString(i));
             itemCasillaMenu.setVisible(false);
             
-            jMenuOperacion.add(itemCasillaMenu);
+            jMenuCasilla.add(itemCasillaMenu);
             
             
             itemCasillaMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +222,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
     public void itemOpcionMenuActionPerformed(java.awt.event.ActionEvent evt){
         boolean encontrado = false;
         
+        
         for(int i = 0; i < OpcionMenu.values().length && !encontrado; i++){
             if(OpcionMenu.values()[i].toString() == evt.getActionCommand()){
                 encontrado = true;
@@ -232,6 +232,8 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         
         if (controlador.necesitaElegirCasilla(operacionElegida)){
             updateJMenuCasillas(operacionElegida);
+            areaMensajes.setText("\nNecesitas escoger una casilla\n");
+            
         }else{
             controlador.realizarOperacion(operacionElegida, 0);
         }
@@ -242,14 +244,18 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
     public void itemCasillaMenuActionPerformed(java.awt.event.ActionEvent evt){
         boolean encontrado = false;
         int casilla = 0;
-        
+
+        /*
         for(int i = 0; i < 20 && !encontrado; i++){
             if(Integer.toString(i) == evt.getActionCommand()){
                 encontrado = true;
+                
                 casilla = i;
             }
-            
-        }
+        }*/
+        
+        casilla = Integer.parseInt(evt.getActionCommand());
+        
         
         controlador.realizarOperacion(operacionElegida, casilla);
         
@@ -261,7 +267,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         ArrayList<Integer> operacionesValidas = controlador.obtenerOperacionesJuegoValidas();
         
         for(int i = 0; i < jMenuOperacion.getItemCount(); i++){   
-            if(operacionesValidas.contains(jMenuOperacion.getItem(i).getText())){
+            if(operacionesValidas.contains(i)){
                 jMenuOperacion.getItem(i).setVisible(true);
             }else{
                 jMenuOperacion.getItem(i).setVisible(false);
@@ -275,7 +281,7 @@ public class VistaGraficaQytetet extends javax.swing.JFrame {
         
         for(int i = 0; i < jMenuCasilla.getItemCount(); i++){   
             
-            if(operacionesValidas.contains(Integer.parseInt(jMenuCasilla.getItem(i).getText()))){
+            if(operacionesValidas.contains(i)){
                 jMenuCasilla.getItem(i).setVisible(true);
             }else{
                 jMenuCasilla.getItem(i).setVisible(false);
