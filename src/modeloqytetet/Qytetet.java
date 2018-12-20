@@ -186,7 +186,6 @@ public class Qytetet {
                 boolean casillaCarcel = tablero.esCasillaCarcel(valor);
                 
                 if (casillaCarcel){
-                    System.out.println("balballbdalabdl");
                     encarcelarJugador();
                     
                 }else{
