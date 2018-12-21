@@ -154,6 +154,8 @@ public class TituloPropiedad {
     
     void setPropietario(Jugador propietario){
         this.propietario = propietario;
+        numCasas = 0;
+        numHoteles = 0;
     }
     
     boolean tengoPropietario(){

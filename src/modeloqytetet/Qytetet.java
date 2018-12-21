@@ -233,6 +233,8 @@ public class Qytetet {
                 jugadorActual = especulador;
                 
             }
+            
+            cartaActual = null;
         }
         
     }
