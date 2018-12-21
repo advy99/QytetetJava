@@ -131,6 +131,8 @@ public class DialogoNombres extends javax.swing.JDialog {
         }
         if(numJugadores >= 2){
             dispose();
+        }else {
+            nombres.clear();
         }
     }//GEN-LAST:event_botonJugarActionPerformed
 
